@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox example</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    .container {
+      display: flex;
+      background: #eee;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      background: blueviolet;
+      padding: 20px;
+      margin: 5px;
+      color:black;
+      font-weight: italic;
+      text-align: center;
+    }
+
+    .row { flex-direction: row; }
+    .column { flex-direction: column; }
+
+    
+    
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+
+    .align-center { align-items: center; height: 120px; }
+    .align-end { align-items: flex-end; height: 120px; }
+    .wrap { flex-wrap: wrap; }
+    .wide-box { width: 150px; }
+
+    .align-content-demo {
+      flex-wrap: wrap;
+      height: 200px;
+      align-content: space-between;
+    }
+
+    .gap-demo { gap: 20px; }
+    .grow1 { flex-grow: 1; }
+    .grow2 { flex-grow: 2; }
+
+
+    .shrink-container { width: 300px; }
+    .shrink1 { flex-shrink: 1; width: 150px; }
+    .shrink2 { flex-shrink: 2; width: 150px; }
+
+    .basis100 { flex-basis: 100px; }
+    .basis200 { flex-basis: 200px; }
+
+    .order1 { order: 1; }
+    .order2 { order: 2; }
+    .order3 { order: 3; }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Flexbox Demo (Internal CSS)</h1>
+
+  
+  <h2>1. flex-direction</h2>
+  <div class="container row">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+  <div class="container column">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+  
+  
+  <h2>2. justify-content</h2>
+  <div class="container justify-between">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+  </div>
+
+  <div class="container justify-center">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+  </div>
+
+  
+  
+  <h2>3. align-items</h2>
+  <div class="container align-center">
+    <div class="box">X</div>
+    <div class="box">Y</div>
+    <div class="box">Z</div>
+  </div>
+
+  <div class="container align-end">
+    <div class="box">X</div>
+    <div class="box">Y</div>
+    <div class="box">Z</div>
+  </div>
+
+
+  
+  <h2>4. flex-wrap</h2>
+  <div class="container wrap">
+    <div class="box wide-box">1</div>
+    <div class="box wide-box">2</div>
+    <div class="box wide-box">3</div>
+    <div class="box wide-box">4</div>
+  </div>
+
+
+  
+  <h2>5. align-content</h2>
+  <div class="container align-content-demo">
+    <div class="box wide-box">1</div>
+    <div class="box wide-box">2</div>
+    <div class="box wide-box">3</div>
+    <div class="box wide-box">4</div>
+  </div>
+
+ 
+  
+  <h2>6. gap</h2>
+  <div class="container gap-demo">
+    <div class="box">G1</div>
+    <div class="box">G2</div>
+    <div class="box">G3</div>
+  </div>
+
+  
+  <h2>7. flex-grow</h2>
+  <div class="container">
+    <div class="box grow1">1</div>
+    <div class="box grow2">2</div>
+    <div class="box grow1">3</div>
+  </div>
+
+  
+  <h2>8. flex-shrink</h2>
+  <div class="container shrink-container">
+    <div class="box shrink1">A</div>
+    <div class="box shrink2">B</div>
+  </div>
+
+  <h2>9. flex-basis</h2>
+  <div class="container">
+    <div class="box basis100">100px</div>
+    <div class="box basis200">200px</div>
+  </div>
+
+  <h2>10. order</h2>
+  <div class="container">
+    <div class="box order3">1</div>
+    <div class="box order1">2</div>
+    <div class="box order2">3</div>
+  </div>
+
+</body>
+</html>
