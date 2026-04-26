@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Display</title>
+</head>
+<body>
+
+<ul id="itemList"></ul>
+<style>
+    body {
+        background-color: green;
+    }
+</style>
+
+<script>
+    let items = ["Apple", "Banana", "Mango", "Orange"];
+    let list = document.getElementById("itemList");
+
+    items.forEach(function(item) {
+        let li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+</script>
+
+</body>
+</html>
