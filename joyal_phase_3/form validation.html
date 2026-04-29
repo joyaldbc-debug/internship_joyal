@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      height: 100vh;
+      display: flex;
+      justify-content: center;   
+      align-items: center;       
+      background: #f2f2f2;
+      margin: 0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;       
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px; 
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      text-align: left;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: lightcoral;
+        }
+    </style>
+
+  <div class="login-box">
+    <h2>Login form</h2>
+
+    <form id="loginForm">
+
+      <input type="text" id="username" placeholder="Username">
+      <span id="usernameError" class="error"></span>
+
+      <input type="password" id="password" placeholder="Password">
+      <span id="passwordError" class="error"></span>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const usernameError = document.getElementById("usernameError");
+      const passwordError = document.getElementById("passwordError");
+      const result = document.getElementById("result");
+
+      usernameError.textContent = "";
+      passwordError.textContent = "";
+      result.textContent = "";
+
+      let isValid = true;
+
+      if (username === "") {
+        usernameError.textContent = "Username is required";
+        isValid = false;
+      } else if (username.length < 4) {
+        usernameError.textContent = "Minimum 4 characters required";
+        isValid = false;
+      }
+
+      if (password === "") {
+        passwordError.textContent = "Password is required";
+        isValid = false;
+      } else if (password.length < 6) {
+        passwordError.textContent = "Minimum 6 characters required";
+        isValid = false;
+      }
+
+      if (isValid) {
+        result.textContent = "Login successful!";
+        result.className = "success";
+      }
+    });
+  </script>
+
+</body>
+</html>

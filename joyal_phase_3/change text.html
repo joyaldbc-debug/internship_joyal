@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Text</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+
+  <p id="text">original text</p>
+
+  <button onclick="changeText()">Click Me</button>
+
+  <script>
+    function changeText() {
+      document.getElementById("text").innerHTML = "Text has been changed!";
+    }
+  </script>
+
+</body>
+</html>

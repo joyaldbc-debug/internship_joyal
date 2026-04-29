@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Preview</title>
+</head>
+<body>  
+    <style>
+        body {
+            background-color: lightseagreen;
+        }
+    </style>
+
+  <h2>Type Something</h2>
+
+  <input type="text" id="inputBox" oninput="showPreview()" placeholder="Type here...">
+
+  <p>Preview: <span id="preview"></span></p>
+
+  <script>
+    function showPreview() {
+      const text = document.getElementById("inputBox").value;
+      document.getElementById("preview").textContent = text;
+    }
+  </script>
+
+</body>
+</html>

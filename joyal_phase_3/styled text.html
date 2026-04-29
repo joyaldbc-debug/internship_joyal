@@ -1,0 +1,15 @@
+<p id="text"> 'Click' the button to change style</p>
+<button onclick="changeStyle()">Click </button>
+<style>
+    body {
+        background-color: lightgray;
+    }
+</style>
+
+<script>
+  function changeStyle() {
+    let el = document.getElementById("text");
+    el.style.color = "blue";
+    el.style.backgroundColor = "red";
+  }
+</script>
