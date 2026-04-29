@@ -55,6 +55,7 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      gap: 5px;
     }
 
     .delete-btn {
@@ -65,6 +66,16 @@
 
     .delete-btn:hover {
       background-color: darkred;
+    }
+
+    .edit-btn {
+      background-color:blue;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .edit-btn:hover {
+      background-color: darkblue;
     }
   </style>
 
@@ -90,6 +101,10 @@
       const span = document.createElement("span");
       span.textContent = task;
 
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "Edit";
+      editBtn.className = "edit-btn";
+
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
       deleteBtn.className = "delete-btn";
@@ -98,7 +113,30 @@
         li.remove();
       };
 
+      editBtn.onclick = function () {
+        if (editBtn.textContent === "Edit") {
+          const editInput = document.createElement("input");
+          editInput.type = "text";
+          editInput.value = span.textContent;
+
+          li.replaceChild(editInput, span);
+          editBtn.textContent = "Save";
+
+          editBtn.onclick = function () {
+            const newValue = editInput.value.trim();
+            if (newValue === "") return;
+
+            span.textContent = newValue;
+            li.replaceChild(span, editInput);
+            editBtn.textContent = "Edit";
+
+            editBtn.onclick = arguments.callee;
+          };
+        }
+      };
+
       li.appendChild(span);
+      li.appendChild(editBtn);
       li.appendChild(deleteBtn);
 
       document.getElementById("taskList").appendChild(li);
